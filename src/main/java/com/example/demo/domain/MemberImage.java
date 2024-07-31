@@ -17,7 +17,7 @@ public class MemberImage {
     @Column(name = "file_num")
     private Long fileNum;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Member member;
 

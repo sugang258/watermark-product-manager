@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -17,10 +19,10 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final MemberImageService memberImageService;
 
-    public Long join(Member member, MultipartFile image) {
+    public Long join(Member member, List<MultipartFile> images) {
 
         memberRepository.saveMember(member);
-        memberImageService.uploadImage(member,image);
+        memberImageService.uploadImage(member,images);
 
         return member.getUserId();
     }

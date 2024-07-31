@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,17 +26,20 @@ public class MemberImageService {
     private final MemberRepository memberRepository;
     private final MemberImageRepository memberImageRepository;
 
-    public void uploadImage(Member member, MultipartFile image) {
+    public void uploadImage(Member member, List<MultipartFile> images) {
         try {
             // 이미지 파일 저장을 위한 경로 설정
             String uploadsDir = "src/main/resources/static/uploads/images/";
 
-            // 이미지 파일 경로를 저장
-            String dbFilePath = saveImage(image, uploadsDir);
+            for (MultipartFile image : images) {
+                // 이미지 파일 경로를 저장
+                String dbFilePath = saveImage(image, uploadsDir);
 
-            // MemberImage 엔티티 생성 및 저장
-            MemberImage memberImage = new MemberImage(member, dbFilePath);
-            memberImageRepository.saveImage(memberImage);
+                // MemberImage 엔티티 생성 및 저장
+                MemberImage memberImage = new MemberImage(member, dbFilePath);
+                memberImageRepository.saveImage(memberImage);
+
+            }
 
         } catch (IOException e) {
             // 파일 저장 중 오류가 발생한 경우 처리

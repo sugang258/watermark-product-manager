@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter @Setter
 @NoArgsConstructor
@@ -24,8 +27,8 @@ public class Member {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private MemberImage memberImage;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MemberImage> memberImage = new ArrayList<>();
 
 
     public Member(Long userId, String userPw, String name, MemberImage memberImage) {
