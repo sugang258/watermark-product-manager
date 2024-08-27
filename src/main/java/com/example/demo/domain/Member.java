@@ -16,12 +16,12 @@ import java.util.List;
 public class Member {
 
     @Id
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "member_id")
+    private Long id;
 
     @NotEmpty
-    @Column(name = "user_pw")
-    private String userPw;
+    @Column(name = "member_pw")
+    private String pw;
 
     @NotEmpty
     @Column(name = "name")
@@ -30,10 +30,4 @@ public class Member {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberImage> memberImage = new ArrayList<>();
 
-
-    public Member(Long userId, String userPw, String name, MemberImage memberImage) {
-        this.userId = userId;
-        this.userPw = userPw;
-        this.name = name;
-    }
 }

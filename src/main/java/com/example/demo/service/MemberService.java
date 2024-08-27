@@ -24,7 +24,7 @@ public class MemberService {
         memberRepository.saveMember(member);
         memberImageService.uploadImage(member,images);
 
-        return member.getUserId();
+        return member.getId();
     }
 
     public Member fineOne(Long userId) {
