@@ -16,14 +16,15 @@ import java.util.List;
 public class Member {
 
     @Id
+    @GeneratedValue
     @Column(name = "member_id")
     private Long id;
 
-    @NotEmpty
+    //@NotEmpty
     @Column(name = "member_pw")
     private String pw;
 
-    @NotEmpty
+    //@NotEmpty
     @Column(name = "name")
     private String name;
 
