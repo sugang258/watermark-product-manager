@@ -33,6 +33,10 @@ image/
 ---
 
 # 🧰 Tech Stack
+![Java](https://img.shields.io/badge/Java-17-blue)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-3.x-green)
+![React](https://img.shields.io/badge/React-Vite-blue)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-orange)
 
 ## 🔧 Backend
 
