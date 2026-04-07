@@ -25,7 +25,7 @@ Spring Boot + React 기반의 **상품 등록 및 이미지 워터마크 처리 
 # 📂 Project Structure
 
 ```
-image/
+watermark-product-manager/
 ├── backend/   # Spring Boot API Server
 └── frontend/  # React (Vite)
 ```
